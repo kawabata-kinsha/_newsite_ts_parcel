@@ -1,0 +1,37 @@
+{
+  "name": "newsite_ts_pacel",
+  "version": "1.1.0",
+  "description": "",
+  "source": "src/ts/main.ts",
+  "main": "www/assets/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass src/scss/:www/assets/css/ --style compressed --no-source-map ",
+    "ts": "parcel build --no-source-maps",
+    "watch:sass": "sass src/scss/:www/assets/css/ --style expanded --watch",
+    "watch:ts": "parcel watch",
+    "clean:css": "rimraf www/assets/css && mkdir -p www/assets/css",
+    "clean:js": "rimraf www/assets/js && mkdir -p www/assets/js",
+    "watch": "npm-run-all -p watch:*",
+    "minify:js": "minify www/assets/js/main.js > www/assets/js/main.min.js && rimraf www/assets/js/main.js",
+    "rename:js": "minify www/assets/js/main.min.js > www/assets/js/main.js && rimraf www/assets/js/main.min.js",
+    "build:master": "npm run clean:css && npm run sass && npm run clean:js && npm run ts && npm run minify:js && npm run rename:js",
+    "typings": "typings"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-typescript-tsc": "^2.9.3",
+    "@parcel/validator-typescript": "^2.9.3",
+    "minify": "^10.3.0",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.9.3",
+    "rename": "^1.0.4",
+    "rimraf": "^5.0.1",
+    "sass": "^1.64.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.16"
+  }
+}
