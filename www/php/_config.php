@@ -2,9 +2,9 @@
 ini_set('display_errors', "On");
 
 /* ------------------------------------------------
-テンプレートフォルダのパス
+include path
 --------------------------------------------------- */
-$path = dirname(__FILE__).'/';
+$path = dirname(__FILE__) . '/';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 
